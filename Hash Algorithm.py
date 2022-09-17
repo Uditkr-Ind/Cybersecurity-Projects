@@ -2,15 +2,26 @@ import hashlib
 
 print("Enter a string:")
 str2hash = input()
+as_bytes = bytes(str2hash, 'utf8')
 print ("\r")
 
-result = hashlib.md5(b'str2hash')
+result = hashlib.md5(as_bytes)
 print("The byte equivalent of MD5 hash is : ", end ="")
 print(result.digest())
 print ("\r")
 
 result = hashlib.md5(str2hash.encode())
 print("The hexadecimal equivalent of MD5 hash is : ", end ="")
+print(result.hexdigest())
+print ("\r")
+
+result = hashlib.sha1(str2hash.encode())
+print("The hexadecimal equivalent of SHA1 is : ")
+print(result.hexdigest())
+print ("\r")
+
+result = hashlib.sha224(str2hash.encode())
+print("The hexadecimal equivalent of SHA224 is : ")
 print(result.hexdigest())
 print ("\r")
 
@@ -24,16 +35,7 @@ print("The hexadecimal equivalent of SHA384 is : ")
 print(result.hexdigest())
 print ("\r")
 
-result = hashlib.sha224(str2hash.encode())
-print("The hexadecimal equivalent of SHA224 is : ")
-print(result.hexdigest())
-print ("\r")
-
 result = hashlib.sha512(str2hash.encode())
 print("The hexadecimal equivalent of SHA512 is : ")
 print(result.hexdigest())
 print ("\r")
-
-result = hashlib.sha1(str2hash.encode())
-print("The hexadecimal equivalent of SHA1 is : ")
-print(result.hexdigest())
